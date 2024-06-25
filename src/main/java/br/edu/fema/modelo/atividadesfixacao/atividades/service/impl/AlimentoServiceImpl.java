@@ -23,6 +23,7 @@ public class AlimentoServiceImpl implements AlimentoService {
     private final AlimentoRepository alimentoRepository;
     private final TipoAlimentoRepository tipoAlimentoRepository;
 
+    //get
     @Override
     public List<AlimentoDTO> buscarTodoAlimento() {
         List<Alimento> listaDeAlimentos = this.alimentoRepository.findAll();
@@ -31,6 +32,7 @@ public class AlimentoServiceImpl implements AlimentoService {
         return AlimentoDTO.converter(listaDeAlimentos);
     }
 
+    //create
     @Override
     @Transactional
     public void criarAlimento(AlimentoForm alimentoForm) {
@@ -45,6 +47,7 @@ public class AlimentoServiceImpl implements AlimentoService {
         this.alimentoRepository.save(alimentoCriado);
     }
 
+    ///update
     @Override
     public void atualizarAlimento(AlimentoForm alimentoForm, UUID id) {
         Optional<Alimento> alimentoEncontrado = alimentoRepository.findById(id);
@@ -65,7 +68,9 @@ public class AlimentoServiceImpl implements AlimentoService {
         return alimento;
     }
 
+    //delete
+    @Override
     public void deletarAlimentoPeloId(UUID id){
-
+        this.alimentoRepository.deleteById(id);
     }
 }
