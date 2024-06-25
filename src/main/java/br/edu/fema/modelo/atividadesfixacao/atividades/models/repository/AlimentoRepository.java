@@ -9,6 +9,5 @@ import java.util.UUID;
 
 
 @Repository
-public interface AlimentoRepository extends JpaRepository<Alimento, Integer> {
-    Optional<Alimento> findById(UUID id);
+public interface AlimentoRepository extends JpaRepository<Alimento, UUID> {
 }

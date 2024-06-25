@@ -33,14 +33,16 @@ public class AlimentoController {
         this.alimentoService.criarAlimento(alimentoForm);
     }
 
+    @ResponseStatus(HttpStatus.MOVED_PERMANENTLY)
     @PutMapping(path = "/atualizarAlimento/{id}")
     public void atualizarAlimento(@RequestBody AlimentoForm alimentoForm,
                                   @PathVariable UUID id){
         this.alimentoService.atualizarAlimento(alimentoForm, id);
     }
 
-    @DeleteMapping
-    public void deletarAlimentoPeloId(UUID id){
-        this.alimentoRepository.findById(id);
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping(path = "/deletar/{id}")
+    public void deletarAlimentoPeloId(@PathVariable UUID id){
+        alimentoService.deletarAlimentoPeloId(id);
     }
 }
