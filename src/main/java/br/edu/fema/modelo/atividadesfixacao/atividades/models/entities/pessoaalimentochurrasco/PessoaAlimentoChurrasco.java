@@ -13,7 +13,7 @@ import lombok.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "pessoa_alimento_xhurrasco", schema = "public")
+@Table(name = "pessoa_alimento_xhurrasco", schema = "atividade_fixacao")
 public class PessoaAlimentoChurrasco {
 
     @EmbeddedId

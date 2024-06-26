@@ -43,6 +43,6 @@ public class AlimentoController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping(path = "/deletar/{id}")
     public void deletarAlimentoPeloId(@PathVariable UUID id){
-        alimentoService.deletarAlimentoPeloId(id);
+        this.alimentoService.deletarAlimentoPeloId(id);
     }
 }
