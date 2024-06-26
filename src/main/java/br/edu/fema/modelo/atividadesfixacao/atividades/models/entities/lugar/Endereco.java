@@ -1,4 +1,4 @@
-package br.edu.fema.modelo.atividadesfixacao.atividades.models.entities.local;
+package br.edu.fema.modelo.atividadesfixacao.atividades.models.entities.lugar;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "xhurrasco", schema = "public")
+@Table(name = "xhurrasco", schema = "atividade_fixacao")
 public class Churrasco {
 
     @Id
@@ -26,8 +26,8 @@ public class Churrasco {
     @Column(name = "data_fim")
     private LocalDateTime dataFim;
 
-    @Column(name = "id_local")
-    private String local;
+    @Column(name = "id_lugar")
+    private String lugar;
 
     @OneToOne
     @JoinColumn(name = "id")

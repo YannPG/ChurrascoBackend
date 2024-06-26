@@ -1,4 +1,4 @@
-package br.edu.fema.modelo.atividadesfixacao.atividades.models.entities.local;
+package br.edu.fema.modelo.atividadesfixacao.atividades.models.entities.lugar;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -12,8 +12,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "local", schema = "public")
-public class Local {
+@Table(name = "lugar", schema = "atividade_fixacao")
+public class Lugar {
 
     @Embedded
     private Endereco enderecoId;

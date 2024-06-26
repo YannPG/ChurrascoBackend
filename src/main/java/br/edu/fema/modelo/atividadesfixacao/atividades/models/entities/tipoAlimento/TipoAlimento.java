@@ -8,18 +8,15 @@ import lombok.*;
 
 @Getter
 @Setter
-@AllArgsConstructor @ToString
+@AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "tipo_comes_e_bebes")
+@Table(name = "tipo_comes_e_bebes", schema = "atividade_fixacao")
 public class TipoAlimento {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Setter(AccessLevel.NONE)
-    private long id;
+    private Long id;
 
-    @NotNull
     @Column(name = "descricao")
     private String descricao;
 
