@@ -52,7 +52,7 @@ public class AlimentoServiceImpl implements AlimentoService {
     public void atualizarAlimento(AlimentoForm alimentoForm, UUID id) {
         Optional<Alimento> alimentoEncontrado = alimentoRepository.findById(id);
         if(alimentoEncontrado.isEmpty()) throw new RuntimeException("esse Alimento não existe");
-        alimentoRepository.save(converterForm(alimentoForm, id));
+        this.alimentoRepository.save(converterForm(alimentoForm, id));
     }
 
     public Alimento converterForm(AlimentoForm convertForm, UUID id){
