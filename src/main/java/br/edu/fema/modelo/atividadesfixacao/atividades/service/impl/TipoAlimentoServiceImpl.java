@@ -1,7 +1,6 @@
 package br.edu.fema.modelo.atividadesfixacao.atividades.service.impl;
 
 import br.edu.fema.modelo.atividadesfixacao.atividades.DTO.TipoAlimentoDTO;
-import br.edu.fema.modelo.atividadesfixacao.atividades.forms.AlimentoForm;
 import br.edu.fema.modelo.atividadesfixacao.atividades.forms.TipoAlimentoForm;
 import br.edu.fema.modelo.atividadesfixacao.atividades.models.entities.tipoAlimento.TipoAlimento;
 import br.edu.fema.modelo.atividadesfixacao.atividades.models.repository.TipoAlimentoRepository;
@@ -13,7 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.UUID;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -33,18 +32,26 @@ public class TipoAlimentoServiceImpl implements TipoAlimentoService {
     @Transactional
     public void criaTipoALimento(TipoAlimentoForm tipoAlimentoForm) {
         TipoAlimento tipoAlimentoCriado = new TipoAlimento();
-            tipoAlimentoCriado.setId(11l);
             tipoAlimentoCriado.setDescricao(tipoAlimentoForm.getDescricao());
         this.tipoAlimentoRepository.save(tipoAlimentoCriado);
     }
 
     @Override
-    public void atualizarTipoAlimento(TipoAlimentoForm tipoAlimentoForm, UUID id) {
+    public void atualizarTipoAlimento(TipoAlimentoForm tipoAlimentoForm, Long id) {
+        Optional<TipoAlimento> tipoAlimentoEncontrado = this.tipoAlimentoRepository.findById(id);
+        if(tipoAlimentoEncontrado.isEmpty()) throw new RuntimeException("Esse tipo de alimento não foi encontrado");
+        this.tipoAlimentoRepository.save(converterForm(tipoAlimentoForm, id));
+    }
 
+    public TipoAlimento converterForm(TipoAlimentoForm converteForm, Long id){
+        TipoAlimento tipoAlimento = new TipoAlimento();
+        tipoAlimento.setId(id);
+        tipoAlimento.setDescricao(converteForm.getDescricao());
+        return tipoAlimento;
     }
 
     @Override
-    public void deletarTipoAlimentoPeloId(UUID id) {
-
+    public void deletarTipoAlimentoPeloId(Long id) {
+        this.tipoAlimentoRepository.deleteById(id);
     }
 }

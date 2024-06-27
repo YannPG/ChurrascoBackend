@@ -13,9 +13,11 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 public class TipoAlimentoDTO  {
 
+    private Long id;
     private String descricao;
 
     public TipoAlimentoDTO(TipoAlimento tipoAlimento) {
+        this.id = tipoAlimento.getId();
         this.descricao = tipoAlimento.getDescricao();
     }
 

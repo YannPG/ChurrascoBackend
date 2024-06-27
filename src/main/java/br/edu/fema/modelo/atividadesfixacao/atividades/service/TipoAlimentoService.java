@@ -13,7 +13,7 @@ public interface TipoAlimentoService {
 
     void criaTipoALimento(TipoAlimentoForm tipoAlimentoForm);
 
-    void atualizarTipoAlimento(TipoAlimentoForm tipoAlimentoForm, UUID id);
+    void atualizarTipoAlimento(TipoAlimentoForm tipoAlimentoForm, Long id);
 
-    void deletarTipoAlimentoPeloId(UUID id);
+    void deletarTipoAlimentoPeloId(Long id);
 }

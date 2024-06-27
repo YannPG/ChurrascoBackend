@@ -15,9 +15,9 @@ import lombok.*;
 public class TipoAlimento {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "descricao")
     private String descricao;
 
 }

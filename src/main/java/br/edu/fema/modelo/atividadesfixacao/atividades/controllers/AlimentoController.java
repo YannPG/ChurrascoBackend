@@ -19,7 +19,6 @@ import java.util.UUID;
 public class AlimentoController {
 
     private final AlimentoService alimentoService;
-    private final AlimentoRepository alimentoRepository;
 
     @ResponseStatus(HttpStatus.ACCEPTED)
     @GetMapping(path ="/buscarAlimento")

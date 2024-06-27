@@ -33,13 +33,13 @@ public class TipoAlimentoController {
     @ResponseStatus(HttpStatus.MOVED_PERMANENTLY)
     @PutMapping(path = "/atualizarTipoAlimento/{id}")
     public void atualizarTipoAlimento(@RequestBody TipoAlimentoForm tipoAlimentoForm,
-                                  @PathVariable UUID id){
+                                  @PathVariable Long id){
         this.tipoAlimentoService.atualizarTipoAlimento(tipoAlimentoForm, id);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping(path = "/deletar/{id}")
-    public void deletarTipoAlimentoPeloId(@PathVariable UUID id){
+    public void deletarTipoAlimentoPeloId(@PathVariable Long id){
         tipoAlimentoService.deletarTipoAlimentoPeloId(id);
     }
 }
