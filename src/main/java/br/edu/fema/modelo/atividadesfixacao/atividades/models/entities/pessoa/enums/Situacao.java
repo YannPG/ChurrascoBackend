@@ -1,18 +1,23 @@
 package br.edu.fema.modelo.atividadesfixacao.atividades.models.entities.pessoa.enums;
 
-public enum Situacao {
 
-    COMFIRMADO("C"),
-    AGUARDANDO("A"),
-    RECUSADO("R");
+import br.edu.fema.modelo.atividadesfixacao.utils.conversao.enums.interfaces.ValorEnum;
+import br.edu.fema.modelo.atividadesfixacao.utils.conversao.enums.service.DesserializadorEnum;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-    final private String situcao;
+@Getter
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@JsonDeserialize(using = DesserializadorEnum.class)
+public enum Situacao implements ValorEnum<String> {
 
-    Situacao(String situcao){
-        this.situcao = situcao;
-    }
-    public String getDescricao(){
-        return situcao;
-    }
+    COMFIRMADO("C", "Conformado"),
+    AGUARDANDO("A", "Aguardando"),
+    RECUSADO("R", "Recusado");
+
+    private String valor;
+    private String descricao;
 
 }
