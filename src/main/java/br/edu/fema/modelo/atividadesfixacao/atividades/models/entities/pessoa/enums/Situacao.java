@@ -13,7 +13,7 @@ import lombok.Getter;
 @JsonDeserialize(using = DesserializadorEnum.class)
 public enum Situacao implements ValorEnum<String> {
 
-    COMFIRMADO("C", "Conformado"),
+    COMFIRMADO("C", "Confirmado"),
     AGUARDANDO("A", "Aguardando"),
     RECUSADO("R", "Recusado");
 
