@@ -22,7 +22,7 @@ public class PessoaServiceImpl implements PessoaService {
 
     @Override
     public List<PessoaDTO> buscarTodoPessoa() {
-        List<Pessoa> listTodaPessoa = this.pessoaRepository.findAll();
+        List<Pessoa> listTodaPessoa = this.pessoaRepository.findAllByOrderByNomeAsc();
         if(listTodaPessoa.isEmpty()) throw new ResponseStatusException(HttpStatus.NOT_FOUND
                 ,"lista de alimentos está vazia");
         return PessoaDTO.converter(listTodaPessoa);
