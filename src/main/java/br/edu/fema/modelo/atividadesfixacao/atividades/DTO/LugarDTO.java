@@ -23,11 +23,29 @@ public class LugarDTO {
 
     private BigDecimal valor;
 
+    private String cep;
+
+    private String rua;
+
+    private String numeroCasa;
+
+    private String complemento;
+
+    private String cidade;
+
+    private String estado;
+
     public LugarDTO(Lugar lugar){
         this.id = lugar.getId();
         this.vagasEstacionamento = lugar.getVagasEstacionamento();
         this.limiteDePessoas = lugar.getLimiteDePessoas();
         this.valor = lugar.getValor();
+        this.cep = lugar.getEndereco().getCep();
+        this.rua = lugar.getEndereco().getRua();
+        this.numeroCasa = lugar.getEndereco().getNumeroCasa();
+        this.complemento = lugar.getEndereco().getComplemento();
+        this.cidade = lugar.getEndereco().getCidade();
+        this.estado = lugar.getEndereco().getEstado();
     }
 
     public static List<LugarDTO> converter (List<Lugar> listDeLugar){

@@ -25,13 +25,13 @@ public class ChurrascoController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PutMapping(path = "/criarChurrasco")
+    @PostMapping(path = "/criarChurrasco")
     public void criarChurrasco(@RequestBody @Valid ChurrascoForm churrascoForm, Long id){
         this.churrascoService.criarChurrasco(churrascoForm, id);
     }
 
     @ResponseStatus(HttpStatus.MOVED_PERMANENTLY)
-    @PostMapping(path = "/atualizarChurrasco/{id}")
+    @PutMapping(path = "/atualizarChurrasco/{id}")
     public void atualizarChurrasco(@RequestBody ChurrascoForm churrascoForm,
                                    @PathVariable Long id){
         this.churrascoService.atualizarChurrasco(churrascoForm, id);

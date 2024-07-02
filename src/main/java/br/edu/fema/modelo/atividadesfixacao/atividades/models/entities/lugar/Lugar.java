@@ -16,7 +16,7 @@ import java.util.UUID;
 public class Lugar {
 
     @Embedded
-    private Endereco enderecoId;
+    private Endereco endereco;
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
